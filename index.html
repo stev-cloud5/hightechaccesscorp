@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HighTechAccessCorp | Custom Aluminum Work</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #222;
+            --accent: #4a7cff;
+            --accent-hover: #3a63d6;
+            --text-primary: #f0f0f0;
+            --text-secondary: #aaa;
+            --border-subtle: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 6px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(74, 124, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(58, 99, 214, 0.06) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(74, 124, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 6px 30px rgba(74, 124, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ── Section Shared ── */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Services Section ── */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(74, 124, 255, 0.1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.2rem;
+            background: rgba(74, 124, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Gallery Section ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .gallery-card:hover .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(74,124,255,0.05) 100%);
+        }
+
+        .gallery-card .label {
+            font-size: 0.95rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ── CTA Banner ── */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(74, 124, 255, 0.12) 0%, rgba(58, 99, 214, 0.06) 100%);
+            border-top: 1px solid rgba(74, 124, 255, 0.2);
+            border-bottom: 1px solid rgba(74, 124, 255, 0.2);
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-contacts {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .cta-contact-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .cta-contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .cta-contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 13, 0.97);
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-toggle.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding-top: 5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        /* ── Scroll Animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">HIGHTECHACCESSCORP</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#gallery" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content fade-up">
+            <div class="hero-badge">Custom Aluminum Solutions</div>
+            <h1>High Quality Precision <span class="highlight">Aluminum</span> Work Built to Last</h1>
+            <p>Custom gates, fences, and motorized installations crafted with expert precision. Serving residential and commercial clients with quality that stands the test of time.</p>
+            <div class="hero-cta">
+                <a href="tel:7865144747" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call 786-514-4747
+                </a>
+                <a href="mailto:Hightechaccess@live.com" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                    Email for Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Our Services</h2>
+                <p>Professional aluminum fabrication and installation services tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- Custom Aluminum Gates -->
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="1"/>
+                            <line x1="12" y1="4" x2="12" y2="20"/>
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="7" y1="4" x2="7" y2="20"/>
+                            <line x1="17" y1="4" x2="17" y2="20"/>
+                        </svg>
+                    </div>
+                    <h3>Custom Aluminum Gates</h3>
+                    <p>Elegant, durable gate designs for driveways, walkways, and entryways</p>
+                </div>
+
+                <!-- Custom Aluminum Fences -->
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="4" y1="4" x2="4" y2="20"/>
+                            <line x1="12" y1="4" x2="12" y2="20"/>
+                            <line x1="20" y1="4" x2="20" y2="20"/>
+                            <line x1="4" y1="9" x2="20" y2="9"/>
+                            <line x1="4" y1="15" x2="20" y2="15"/>
+                            <line x1="4" y1="4" x2="4" y2="2"/>
+                            <line x1="12" y1="4" x2="12" y2="2"/>
+                            <line x1="20" y1="4" x2="20" y2="2"/>
+                        </svg>
+                    </div>
+                    <h3>Custom Aluminum Fences</h3>
+                    <p>Secure and stylish perimeter fencing for homes and businesses</p>
+                </div>
+
+                <!-- Gate Motor Installation -->
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <h3>Gate Motor Installation</h3>
+                    <p>Automated gate systems for effortless access and enhanced security</p>
+                </div>
+
+                <!-- Garage Door Installation -->
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <line x1="2" y1="8" x2="22" y2="8"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <line x1="2" y1="16" x2="22" y2="16"/>
+                        </svg>
+                    </div>
+                    <h3>Garage Door Installation</h3>
+                    <p>Professional installation of high-quality garage doors in all styles</p>
+                </div>
+
+                <!-- Garage Door Motor Installation -->
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="6" width="20" height="14" rx="2"/>
+                            <line x1="2" y1="10" x2="22" y2="10"/>
+                            <line x1="2" y1="14" x2="22" y2="14"/>
+                            <circle cx="17" cy="4" r="2"/>
+                            <path d="M17 2v-1M19 4h1M17 6v1M15 4h-1"/>
+                        </svg>
+                    </div>
+                    <h3>Garage Door Motor Installation</h3>
+                    <p>Motorized opener systems for smooth, reliable garage door operation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Our Projects</h2>
+                <p>A showcase of our craftsmanship and attention to detail</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card fade-up">
+                    <img src="images/1afa695b-a1ac-4c6f-a5a6-057529a58907.JPG" alt="Custom Slat Driveway Gate">
+                    <div class="overlay"><span class="label">Custom Slat Driveway Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/7d16f34f-6561-4f3f-a4ba-d89267535110.JPG" alt="Decorative Panel Gate">
+                    <div class="overlay"><span class="label">Decorative Panel Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/94ef61d8-a6e7-4106-a3ec-9ffe647ef4ee.JPG" alt="Modern Horizontal Gate">
+                    <div class="overlay"><span class="label">Modern Horizontal Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/b9922ffb-cadd-4d04-a26f-d361f31efbf5.JPG" alt="Contemporary Black Gate">
+                    <div class="overlay"><span class="label">Contemporary Black Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/c3df9ae2-5550-4b41-b4fb-bfa74a219104.JPG" alt="Vertical Panel Gate">
+                    <div class="overlay"><span class="label">Vertical Panel Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/d2e3a483-e78b-4dad-9eef-d738a6914a4d.JPG" alt="Residential Gate &amp; Fence">
+                    <div class="overlay"><span class="label">Residential Gate &amp; Fence</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/e817932f-6608-4f42-ae0e-4ab8301ee511.JPG" alt="Custom Gate Installation">
+                    <div class="overlay"><span class="label">Custom Gate Installation</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_2522.JPEG" alt="Ornamental Entry Gate">
+                    <div class="overlay"><span class="label">Ornamental Entry Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_3821.jpg" alt="Custom Panel Driveway Gate">
+                    <div class="overlay"><span class="label">Custom Panel Driveway Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/1289577e-bad8-4188-862a-ff52d326ed0a.JPG" alt="Aluminum Pergola">
+                    <div class="overlay"><span class="label">Aluminum Pergola</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/261d5237-65f3-46c8-8c84-4e0590d376e6.JPG" alt="Custom Stair Railing">
+                    <div class="overlay"><span class="label">Custom Stair Railing</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/41a853f0-e148-4611-887a-305625232bde.JPG" alt="Poolside Cabana Structure">
+                    <div class="overlay"><span class="label">Poolside Cabana Structure</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/4fc6bc2c-7cbb-4eb3-9fc8-392ae6f9bf49.JPG" alt="Balcony Louver Installation">
+                    <div class="overlay"><span class="label">Balcony Louver Installation</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/67f9ae42-e9f8-4791-979b-751a80ebe6a5.JPG" alt="Interior Spiral Staircase">
+                    <div class="overlay"><span class="label">Interior Spiral Staircase</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/e5091826-3d69-4de4-afd8-0dfd8271daab.JPG" alt="Exterior Spiral Staircase">
+                    <div class="overlay"><span class="label">Exterior Spiral Staircase</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4499.jpg" alt="Modern Aluminum Entrance">
+                    <div class="overlay"><span class="label">Modern Aluminum Entrance</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5641.jpeg" alt="Custom Metal Wood-Finish Cladding">
+                    <div class="overlay"><span class="label">Custom Metal Wood-Finish Cladding</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5790.jpeg" alt="Modern Slat Facade">
+                    <div class="overlay"><span class="label">Modern Slat Facade</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/57411643465__855AC93F-9BD0-42C5-B353-B1035ABB3397.JPG" alt="Exterior Slat Cladding">
+                    <div class="overlay"><span class="label">Exterior Slat Cladding</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner" id="contact">
+        <div class="container fade-up">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Get a free quote today. We're here to bring your vision to life with precision aluminum craftsmanship.</p>
+            <div class="cta-contacts">
+                <div class="cta-contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <a href="tel:7865144747">786-514-4747</a>
+                </div>
+                <div class="cta-contact-item">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                    <a href="mailto:Hightechaccess@live.com">Hightechaccess@live.com</a>
+                </div>
+            </div>
+            <div class="cta-actions">
+                <a href="tel:7865144747" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call Now
+                </a>
+                <a href="mailto:Hightechaccess@live.com" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                    Send Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>HIGHTECHACCESSCORP</h3>
+                <p>High quality custom aluminum gates, fences &amp; installations.<br>Quality craftsmanship you can trust.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <a href="tel:7865144747">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    786-514-4747
+                </a>
+                <a href="mailto:Hightechaccess@live.com">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                    Hightechaccess@live.com
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 HighTechAccessCorp. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('open');
+        }
+
+        // Navbar scroll shadow
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
