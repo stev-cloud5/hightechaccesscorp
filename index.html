@@ -12,14 +12,15 @@
         }
 
         :root {
-            --bg-primary: #0d0d0d;
-            --bg-secondary: #1a1a1a;
-            --bg-card: #222;
-            --accent: #4a7cff;
-            --accent-hover: #3a63d6;
-            --text-primary: #f0f0f0;
-            --text-secondary: #aaa;
-            --border-subtle: #333;
+            --bg-primary: #e8e8ec;
+            --bg-secondary: #dddde2;
+            --bg-card: #f0f0f4;
+            --accent: #1b3a8a;
+            --accent-hover: #142d6b;
+            --accent-deep: #1b3a8a;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --border-subtle: #c8c8d0;
         }
 
         html {
@@ -40,7 +41,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(13, 13, 13, 0.92);
+            background: rgba(232, 232, 236, 0.92);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-subtle);
             transition: box-shadow 0.3s;
@@ -60,11 +61,20 @@
         }
 
         .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--accent);
             text-decoration: none;
             letter-spacing: 1px;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -96,7 +106,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--text-primary);
+            background: var(--accent);
             margin: 6px 0;
             transition: transform 0.3s, opacity 0.3s;
         }
@@ -118,8 +128,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 30% 50%, rgba(74, 124, 255, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 20%, rgba(58, 99, 214, 0.06) 0%, transparent 50%);
+                radial-gradient(ellipse at 30% 50%, rgba(27, 58, 138, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(20, 45, 107, 0.06) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -184,13 +194,13 @@
 
         .btn-primary {
             background: var(--accent);
-            color: #000;
-            box-shadow: 0 4px 20px rgba(74, 124, 255, 0.3);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(27, 58, 138, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--accent-hover);
-            box-shadow: 0 6px 30px rgba(74, 124, 255, 0.4);
+            box-shadow: 0 6px 30px rgba(27, 58, 138, 0.4);
         }
 
         .btn-outline {
@@ -260,14 +270,14 @@
         .service-card:hover {
             transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 8px 30px rgba(74, 124, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(27, 58, 138, 0.1);
         }
 
         .service-icon {
             width: 56px;
             height: 56px;
             margin: 0 auto 1.2rem;
-            background: rgba(74, 124, 255, 0.1);
+            background: rgba(27, 58, 138, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -344,9 +354,9 @@
 
         /* ── CTA Banner ── */
         .cta-banner {
-            background: linear-gradient(135deg, rgba(74, 124, 255, 0.12) 0%, rgba(58, 99, 214, 0.06) 100%);
-            border-top: 1px solid rgba(74, 124, 255, 0.2);
-            border-bottom: 1px solid rgba(74, 124, 255, 0.2);
+            background: linear-gradient(135deg, rgba(27, 58, 138, 0.12) 0%, rgba(20, 45, 107, 0.06) 100%);
+            border-top: 1px solid rgba(27, 58, 138, 0.2);
+            border-bottom: 1px solid rgba(27, 58, 138, 0.2);
             text-align: center;
             padding: 4rem 1.5rem;
         }
@@ -470,7 +480,7 @@
             border-top: 1px solid var(--border-subtle);
             text-align: center;
             font-size: 0.85rem;
-            color: #555;
+            color: #6a6a7a;
         }
 
         /* ── Mobile Responsive ── */
@@ -481,7 +491,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(13, 13, 13, 0.97);
+                background: rgba(232, 232, 236, 0.97);
                 flex-direction: column;
                 padding: 1rem 1.5rem;
                 border-bottom: 1px solid var(--border-subtle);
@@ -546,7 +556,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="#hero" class="nav-logo">HIGHTECHACCESSCORP</a>
+            <a href="#hero" class="nav-logo"><img src="images/logo.png" alt="HighTechAccessCorp Logo">HIGHTECHACCESSCORP</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services" onclick="closeMenu()">Services</a></li>
                 <li><a href="#gallery" onclick="closeMenu()">Projects</a></li>
@@ -628,7 +638,7 @@
                             <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
                         </svg>
                     </div>
-                    <h3>Gate Motor Installation</h3>
+                    <h3>Gate Motor Installation & Service</h3>
                     <p>Automated gate systems for effortless access and enhanced security</p>
                 </div>
 
@@ -642,7 +652,7 @@
                             <line x1="2" y1="16" x2="22" y2="16"/>
                         </svg>
                     </div>
-                    <h3>Garage Door Installation</h3>
+                    <h3>Garage Door Installation & Service</h3>
                     <p>Professional installation of high-quality garage doors in all styles</p>
                 </div>
 
@@ -657,7 +667,7 @@
                             <path d="M17 2v-1M19 4h1M17 6v1M15 4h-1"/>
                         </svg>
                     </div>
-                    <h3>Garage Door Motor Installation</h3>
+                    <h3>Garage Door Motor Installation & Service</h3>
                     <p>Motorized opener systems for smooth, reliable garage door operation</p>
                 </div>
             </div>
@@ -747,6 +757,463 @@
                 <div class="gallery-card fade-up">
                     <img src="images/57411643465__855AC93F-9BD0-42C5-B353-B1035ABB3397.JPG" alt="Exterior Slat Cladding">
                     <div class="overlay"><span class="label">Exterior Slat Cladding</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/commercial-garage-gate.jpeg" alt="Commercial Garage Gate">
+                    <div class="overlay"><span class="label">Commercial Garage Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/wood-finish-gate.jpeg" alt="Wood-Finish Horizontal Gate">
+                    <div class="overlay"><span class="label">Wood-Finish Horizontal Gate</span></div>
+                </div>
+                <div class="gallery-card fade-up">
+                    <img src="images/05a1ee4a-eeaa-4efd-b1e9-b3aaf3acce14.JPG" alt="Classic Wrought Iron Driveway Gate">
+                    <div class="overlay"><span class="label">Classic Wrought Iron Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/0bb84322-c29a-4b05-be5c-82374a532ac3.JPG" alt="Black Horizontal Louvered Privacy Screen">
+                    <div class="overlay"><span class="label">Black Horizontal Louvered Privacy Screen</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/0f5df16b-ed12-4ecd-b083-0f85c1cd2906.JPG" alt="Rooftop Aluminum Louver Enclosure">
+                    <div class="overlay"><span class="label">Rooftop Aluminum Louver Enclosure</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/1ca22413-aa3b-4044-8781-c940688027b8.JPG" alt="Commercial Security Cage Enclosure">
+                    <div class="overlay"><span class="label">Commercial Security Cage Enclosure</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/1cd11b79-4827-47a7-98ed-6bae5563bdd5.JPG" alt="Modern Vertical Picket Sliding Gate">
+                    <div class="overlay"><span class="label">Modern Vertical Picket Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/1f544f80-83fe-4f2d-ab35-53f5b1526a65.JPG" alt="Wood-Finish Aluminum Sliding Driveway Gate">
+                    <div class="overlay"><span class="label">Wood-Finish Aluminum Sliding Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/294d9fd5-d5ad-4df2-b086-c639c723df28.JPG" alt="Contemporary Horizontal Slat Sliding Gate">
+                    <div class="overlay"><span class="label">Contemporary Horizontal Slat Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/381a96af-ee1e-4488-b9fe-1f35634f584e.JPG" alt="Stainless Steel Cable Balcony Railing">
+                    <div class="overlay"><span class="label">Stainless Steel Cable Balcony Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/38a09216-9075-4637-b407-3de892af01f3.JPG" alt="White Aluminum Vertical Slat Privacy Fence">
+                    <div class="overlay"><span class="label">White Aluminum Vertical Slat Privacy Fence</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/426beeb9-5523-4525-a7af-1ae93d621dd3.JPG" alt="Black Horizontal Slat Double Pedestrian Gate">
+                    <div class="overlay"><span class="label">Black Horizontal Slat Double Pedestrian Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/4630adce-b7cf-4239-ba6d-90df8a5aec4e.JPG" alt="Aluminum Poolside Handrail Installation">
+                    <div class="overlay"><span class="label">Aluminum Poolside Handrail Installation</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/4e9b07f8-c20b-42e3-b33e-ba96df0d97fd.JPG" alt="Black Grid-Style Security Gate with Panic Bar">
+                    <div class="overlay"><span class="label">Black Grid-Style Security Gate with Panic Bar</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/8e4d4852-d1aa-4cc8-8e18-683a11adbaca.JPG" alt="Aluminum Outdoor Stairway Handrails">
+                    <div class="overlay"><span class="label">Aluminum Outdoor Stairway Handrails</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/92934c2c-1133-47f4-b1e4-b06defaf85f6.jpeg" alt="Wood-Grain Vertical Aluminum Cladding">
+                    <div class="overlay"><span class="label">Wood-Grain Vertical Aluminum Cladding</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/a42cdc60-42e4-434e-aa88-c60bec1754d3.JPG" alt="Aluminum Spiral Staircase with Diamond Plate Treads">
+                    <div class="overlay"><span class="label">Aluminum Spiral Staircase with Diamond Plate Treads</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/A514E913-59D9-41C5-8FA8-36F66A713E80.JPG" alt="Black Horizontal Side Gate with Lock">
+                    <div class="overlay"><span class="label">Black Horizontal Side Gate with Lock</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/bc3ba23e-.JPG" alt="Wood-Tone Swing Gate with Arm Operators">
+                    <div class="overlay"><span class="label">Wood-Tone Swing Gate with Arm Operators</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/c2c13b7a-1c41-41ee-9a96-50340c7862fa.JPG" alt="Aluminum Horizontal Louver Building Facade">
+                    <div class="overlay"><span class="label">Aluminum Horizontal Louver Building Facade</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/cc2f1b5f-c92e-4944-8ae1-021295cd7f4c.JPG" alt="Commercial Aluminum HVAC Equipment Enclosure">
+                    <div class="overlay"><span class="label">Commercial Aluminum HVAC Equipment Enclosure</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/d9ca0e37-1784-46a2-804f-34946f4295d2.JPG" alt="Black Horizontal Slat Sliding Driveway Gate">
+                    <div class="overlay"><span class="label">Black Horizontal Slat Sliding Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/dbe6bba5-9fba-4e6b-8536-aec7eb15a1e4.JPG" alt="Vertical Picket Double Swing Entry Gate">
+                    <div class="overlay"><span class="label">Vertical Picket Double Swing Entry Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/E5465658-8576-404D-90A9-5E35509236BB.JPG" alt="Black Aluminum Privacy Double Gate">
+                    <div class="overlay"><span class="label">Black Aluminum Privacy Double Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/e9c5c66d-f4a3-406c-b74a-c935ca198337.JPG" alt="Two-Tone Panel and Slat Sliding Gate">
+                    <div class="overlay"><span class="label">Two-Tone Panel and Slat Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_0313.JPG" alt="White Arched Ornamental Driveway Gate">
+                    <div class="overlay"><span class="label">White Arched Ornamental Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_0336.JPG" alt="White Horizontal Slat Sliding Gate for Modern Home">
+                    <div class="overlay"><span class="label">White Horizontal Slat Sliding Gate for Modern Home</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_0879.JPG" alt="Dark Horizontal Sliding Gate with Landscaping">
+                    <div class="overlay"><span class="label">Dark Horizontal Sliding Gate with Landscaping</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_1009.JPG" alt="Bronze Horizontal Fence Panel at Modern Residence">
+                    <div class="overlay"><span class="label">Bronze Horizontal Fence Panel at Modern Residence</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_1016.JPG" alt="White Privacy Sliding Gate with Scroll Detail">
+                    <div class="overlay"><span class="label">White Privacy Sliding Gate with Scroll Detail</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_1195.jpeg" alt="Full-Privacy Aluminum Sliding Gate">
+                    <div class="overlay"><span class="label">Full-Privacy Aluminum Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_1201.jpeg" alt="Dark Aluminum Horizontal Slat Entry Gate">
+                    <div class="overlay"><span class="label">Dark Aluminum Horizontal Slat Entry Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_2527.JPG" alt="Vertical Aluminum Slat Facade Cladding Detail">
+                    <div class="overlay"><span class="label">Vertical Aluminum Slat Facade Cladding Detail</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_2528.JPG" alt="Modern Wood-Tone Aluminum Facade with Windows">
+                    <div class="overlay"><span class="label">Modern Wood-Tone Aluminum Facade with Windows</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_2902.JPG" alt="Interior Floating Staircase with Cable Railing">
+                    <div class="overlay"><span class="label">Interior Floating Staircase with Cable Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_3795.jpeg" alt="Black Panel Swing Gate with Horizontal Top Rail">
+                    <div class="overlay"><span class="label">Black Panel Swing Gate with Horizontal Top Rail</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_3932.jpeg" alt="Custom Aluminum Spiral Staircase with Railing">
+                    <div class="overlay"><span class="label">Custom Aluminum Spiral Staircase with Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4731.jpeg" alt="Exterior Spiral Staircase with Diamond Plate Steps">
+                    <div class="overlay"><span class="label">Exterior Spiral Staircase with Diamond Plate Steps</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4733.jpeg" alt="Gray Aluminum Sliding Gate with Motor Enclosure">
+                    <div class="overlay"><span class="label">Gray Aluminum Sliding Gate with Motor Enclosure</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4736.jpeg" alt="Decorative Art Deco Style Sliding Gate with Operator">
+                    <div class="overlay"><span class="label">Decorative Art Deco Style Sliding Gate with Operator</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4742.jpeg" alt="Horizontal Tube Aluminum Covered Parking Gate">
+                    <div class="overlay"><span class="label">Horizontal Tube Aluminum Covered Parking Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4759.jpeg" alt="White Vertical Slat Motorized Sliding Gate">
+                    <div class="overlay"><span class="label">White Vertical Slat Motorized Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4764.jpeg" alt="Wood and Glass Horizontal Slat Garage Door">
+                    <div class="overlay"><span class="label">Wood and Glass Horizontal Slat Garage Door</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4775.jpeg" alt="Wood-Tone Vertical Privacy Swing Gate">
+                    <div class="overlay"><span class="label">Wood-Tone Vertical Privacy Swing Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4805.jpeg" alt="Ornamental Iron Scrollwork Estate Gate">
+                    <div class="overlay"><span class="label">Ornamental Iron Scrollwork Estate Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4885.jpeg" alt="Black Vertical Picket Fence with Pedestrian Gate">
+                    <div class="overlay"><span class="label">Black Vertical Picket Fence with Pedestrian Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4890.jpeg" alt="Black Vertical Slat Privacy Fence Corner Detail">
+                    <div class="overlay"><span class="label">Black Vertical Slat Privacy Fence Corner Detail</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4896.jpeg" alt="Stainless Steel Horizontal Slat Sliding Gate">
+                    <div class="overlay"><span class="label">Stainless Steel Horizontal Slat Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4898.jpeg" alt="Gray Multi-Width Horizontal Aluminum Fence">
+                    <div class="overlay"><span class="label">Gray Multi-Width Horizontal Aluminum Fence</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4900.jpeg" alt="Geometric Pattern Side Gate and Fence Panels">
+                    <div class="overlay"><span class="label">Geometric Pattern Side Gate and Fence Panels</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4910.jpeg" alt="White Aluminum Interior Staircase Railing">
+                    <div class="overlay"><span class="label">White Aluminum Interior Staircase Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4914.jpeg" alt="White Aluminum Staircase Railing from Above">
+                    <div class="overlay"><span class="label">White Aluminum Staircase Railing from Above</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4932.jpeg" alt="Black Aluminum Crossbuck Panel Balcony Railing">
+                    <div class="overlay"><span class="label">Black Aluminum Crossbuck Panel Balcony Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4941.jpeg" alt="Black Flat-Top Picket Driveway Gate">
+                    <div class="overlay"><span class="label">Black Flat-Top Picket Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4947.jpeg" alt="Heavy-Duty Mesh Panel Security Gate with Operator">
+                    <div class="overlay"><span class="label">Heavy-Duty Mesh Panel Security Gate with Operator</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4951.jpeg" alt="White Geometric Diamond Driveway Gate">
+                    <div class="overlay"><span class="label">White Geometric Diamond Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_4955.jpeg" alt="White Geometric Pattern Balcony Railing">
+                    <div class="overlay"><span class="label">White Geometric Pattern Balcony Railing</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5003.jpeg" alt="Custom Decorative Artistic Pedestrian Gate">
+                    <div class="overlay"><span class="label">Custom Decorative Artistic Pedestrian Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5044.jpeg" alt="Black Horizontal Slat Motorized Sliding Gate">
+                    <div class="overlay"><span class="label">Black Horizontal Slat Motorized Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5148.jpeg" alt="Black Privacy Panel Swing Gate with Arm Operator">
+                    <div class="overlay"><span class="label">Black Privacy Panel Swing Gate with Arm Operator</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5152.jpeg" alt="Modern Vertical Picket Fence at Contemporary Home">
+                    <div class="overlay"><span class="label">Modern Vertical Picket Fence at Contemporary Home</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5155.jpeg" alt="Luxury Estate Geometric Crosshatch Sliding Gate">
+                    <div class="overlay"><span class="label">Luxury Estate Geometric Crosshatch Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5162.jpeg" alt="Black Arched Horizontal Pedestrian Gate">
+                    <div class="overlay"><span class="label">Black Arched Horizontal Pedestrian Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5163.jpeg" alt="Dark Vertical Aluminum Slat Driveway Fence">
+                    <div class="overlay"><span class="label">Dark Vertical Aluminum Slat Driveway Fence</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5330.jpeg" alt="Overhead Mesh Security Gate with Automatic Opener">
+                    <div class="overlay"><span class="label">Overhead Mesh Security Gate with Automatic Opener</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5332.jpeg" alt="Industrial Mesh Security Gate Interior View">
+                    <div class="overlay"><span class="label">Industrial Mesh Security Gate Interior View</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5334.jpeg" alt="Commercial Parking Garage Security Gate">
+                    <div class="overlay"><span class="label">Commercial Parking Garage Security Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5344.jpeg" alt="Mixed-Width Horizontal Slat Sliding Gate">
+                    <div class="overlay"><span class="label">Mixed-Width Horizontal Slat Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_5392.jpeg" alt="Gray Panel Driveway Gate with Pedestrian Door">
+                    <div class="overlay"><span class="label">Gray Panel Driveway Gate with Pedestrian Door</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_6078.jpeg" alt="Wood-Tone Panel Sliding Gate at Luxury Estate">
+                    <div class="overlay"><span class="label">Wood-Tone Panel Sliding Gate at Luxury Estate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_6175.JPG" alt="Stainless Steel Wall-Mounted Handrail with Lighting">
+                    <div class="overlay"><span class="label">Stainless Steel Wall-Mounted Handrail with Lighting</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_6475.jpeg" alt="Horizontal Bar Sliding Gate at Contemporary Home">
+                    <div class="overlay"><span class="label">Horizontal Bar Sliding Gate at Contemporary Home</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7011.jpeg" alt="Wood-Tone Vertical Slat Garage Facade Cladding">
+                    <div class="overlay"><span class="label">Wood-Tone Vertical Slat Garage Facade Cladding</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7358.jpeg" alt="Black Aluminum Picket Swing Gate with Operator">
+                    <div class="overlay"><span class="label">Black Aluminum Picket Swing Gate with Operator</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7366.jpeg" alt="Vertical Slat Gate at Modern Tropical Residence">
+                    <div class="overlay"><span class="label">Vertical Slat Gate at Modern Tropical Residence</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7540.jpeg" alt="Vertical Slat Gate Side View with Stone Wall">
+                    <div class="overlay"><span class="label">Vertical Slat Gate Side View with Stone Wall</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7901.jpeg" alt="Asymmetric Horizontal Pedestrian Gate with Lock">
+                    <div class="overlay"><span class="label">Asymmetric Horizontal Pedestrian Gate with Lock</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7902.jpeg" alt="Horizontal Slat Pedestrian Side Gate">
+                    <div class="overlay"><span class="label">Horizontal Slat Pedestrian Side Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_7906.jpeg" alt="Horizontal Aluminum Driveway Gate with Brick Paving">
+                    <div class="overlay"><span class="label">Horizontal Aluminum Driveway Gate with Brick Paving</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8049.jpeg" alt="Horizontal Tube Sliding Gate with Concrete Pillars">
+                    <div class="overlay"><span class="label">Horizontal Tube Sliding Gate with Concrete Pillars</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8105.jpeg" alt="Artistic Wood-Tone Vertical Privacy Screen">
+                    <div class="overlay"><span class="label">Artistic Wood-Tone Vertical Privacy Screen</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8271.jpeg" alt="Black Louvered Privacy Driveway Gate">
+                    <div class="overlay"><span class="label">Black Louvered Privacy Driveway Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8273 2.jpeg" alt="Black Vertical Privacy Gate with Keypad Access">
+                    <div class="overlay"><span class="label">Black Vertical Privacy Gate with Keypad Access</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8273.jpeg" alt="Black Privacy Pedestrian Gate with Keypad Entry">
+                    <div class="overlay"><span class="label">Black Privacy Pedestrian Gate with Keypad Entry</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8348 2.jpeg" alt="Black Diagonal Slat Privacy Gate">
+                    <div class="overlay"><span class="label">Black Diagonal Slat Privacy Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8348.jpeg" alt="Diagonal Aluminum Panel Pedestrian Gate">
+                    <div class="overlay"><span class="label">Diagonal Aluminum Panel Pedestrian Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8393.jpeg" alt="Black Horizontal Privacy Gate with Handle">
+                    <div class="overlay"><span class="label">Black Horizontal Privacy Gate with Handle</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8400.jpeg" alt="Gray Panel Side Gate with Smart Lock">
+                    <div class="overlay"><span class="label">Gray Panel Side Gate with Smart Lock</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8402.jpeg" alt="Black Vertical Slat Sliding Gate with Intercom">
+                    <div class="overlay"><span class="label">Black Vertical Slat Sliding Gate with Intercom</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8408.jpeg" alt="Black Vertical Slat Privacy Sliding Gate">
+                    <div class="overlay"><span class="label">Black Vertical Slat Privacy Sliding Gate</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8491.jpeg" alt="Wood-Tone Horizontal Slat Pedestrian Gate with Intercom">
+                    <div class="overlay"><span class="label">Wood-Tone Horizontal Slat Pedestrian Gate with Intercom</span></div>
+                </div>
+
+                <div class="gallery-card fade-up">
+                    <img src="images/IMG_8492.jpeg" alt="Wood-Tone Vertical Picket Sliding Driveway Gate">
+                    <div class="overlay"><span class="label">Wood-Tone Vertical Picket Sliding Driveway Gate</span></div>
                 </div>
             </div>
         </div>
