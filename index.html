@@ -214,6 +214,28 @@
             color: var(--accent);
         }
 
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe57;
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-text {
+            background: #3B82F6;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-text:hover {
+            background: #2563EB;
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
         .btn svg {
             width: 18px;
             height: 18px;
@@ -491,18 +513,42 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(232, 232, 236, 0.97);
+                background: rgba(232, 232, 236, 0.98);
+                backdrop-filter: blur(12px);
                 flex-direction: column;
-                padding: 1rem 1.5rem;
+                padding: 0.5rem 0;
                 border-bottom: 1px solid var(--border-subtle);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+                gap: 0;
             }
 
             .nav-links.open {
                 display: flex;
             }
 
+            .nav-links li {
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.5rem;
+                font-size: 1.05rem;
+                font-weight: 500;
+                color: var(--text-primary);
+            }
+
+            .nav-links a:active {
+                background: rgba(27, 58, 138, 0.08);
+            }
+
             .nav-toggle {
                 display: block;
+                padding: 0.5rem;
             }
 
             .nav-toggle.open span:nth-child(1) {
@@ -518,23 +564,188 @@
             }
 
             .hero {
-                min-height: 90vh;
-                padding-top: 5rem;
+                min-height: 85vh;
+                padding: 5rem 1.2rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
             }
 
             .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
+            .service-card {
+                padding: 1.5rem 1.2rem;
+            }
+
             .gallery-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-card {
+                aspect-ratio: 16 / 10;
+            }
+
+            .cta-banner {
+                padding: 3rem 1rem;
+            }
+
+            .cta-contacts {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-actions .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
 
             .footer-inner {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+            }
+
+            footer {
+                padding: 2rem 1rem 1.5rem;
+            }
+        }
+
+        /* ── Tablet tweaks ── */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            max-width: 90%;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            line-height: 1;
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                padding: 0.5rem 0.75rem;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-close {
+                font-size: 2rem;
+                top: 0.5rem;
+                right: 0.75rem;
             }
         }
 
@@ -584,6 +795,14 @@
                 <a href="mailto:Hightechaccess@live.com" class="btn btn-outline">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
                     Email for Quote
+                </a>
+                <a href="https://wa.me/17865144747" target="_blank" class="btn btn-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="sms:7865144747" class="btn btn-text">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    Text Us
                 </a>
             </div>
         </div>
@@ -1243,6 +1462,14 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
                     Send Email
                 </a>
+                <a href="https://wa.me/17865144747" target="_blank" class="btn btn-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="sms:7865144747" class="btn btn-text">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    Text Us
+                </a>
             </div>
         </div>
     </section>
@@ -1270,6 +1497,15 @@
             &copy; 2026 HighTechAccessCorp. All rights reserved.
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
+        <img src="" alt="" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
     <script>
         // Mobile nav toggle
@@ -1301,6 +1537,54 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const card = galleryCards[index];
+            const img = card.querySelector('img');
+            const label = card.querySelector('.label');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = label ? label.textContent : img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex = (currentIndex + direction + galleryCards.length) % galleryCards.length;
+            openLightbox(currentIndex);
+        }
+
+        galleryCards.forEach((card, i) => {
+            card.addEventListener('click', () => openLightbox(i));
+        });
+
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+        lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
     </script>
 
 </body>
